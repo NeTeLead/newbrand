@@ -62,9 +62,14 @@ namespace NotBrand.Modes
 
                 if (selectedTarget != null)
                 {
+                    
+                    var pred = Q.GetPrediction(selectedTarget);
+                    if (pred.HitChancePercent >= 100)
+                    {
                     if (W.Cast(selectedTarget))
                     {
                         return;
+                    }
                     }
                 }
             }
