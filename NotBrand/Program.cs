@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Linq;
 using EloBuddy;
 using EloBuddy.SDK;
 using EloBuddy.SDK.Events;
-using EloBuddy.SDK.Enumerations;
 using EloBuddy.SDK.Menu.Values;
 using SharpDX;
 
