@@ -92,6 +92,29 @@ namespace NotBrand
             {
                 return;
             }
+            if (kCore.GapMenu.checkbox(e.SpellName + sender.ID()) && sender.IsKillable(SpellManager.Q.Range))
+            {
+                if (sender.brandpassive())
+                {
+                    if (SpellManager.Q.IsReady())
+                    {
+                        SpellManager.Q.Cast(sender);
+                    }
+                }
+                else
+                {
+                    if (SpellManager.E.IsReady() && SpellManager.Q.IsReady())
+                    {
+                        if (SpellManager.E.Cast(sender))
+                        {
+                            if (sender.brandpassive())
+                            {
+                                SpellManager.Q.Cast(sender);
+                            }
+                        }
+                    }
+                }
+            }
 
 
         }
