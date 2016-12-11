@@ -68,6 +68,10 @@ namespace NotBrand
             PunishMenu = Menu.AddSubMenu("Punish");
             
             PunishSetupMenu = Menu.AddSubMenu("Punish Setup");
+            
+            foreach (var enemy in EntityManager.Heroes.Enemies.Where(a => a.Team != Player.Instance.Team))
+            {
+            }
         }
 
         public static void Initialize()
