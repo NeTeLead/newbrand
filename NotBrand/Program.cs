@@ -97,7 +97,7 @@ namespace NotBrand
                 {
                     if (SpellManager.Q.IsReady())
                     {
-                        SpellManager.Q.Cast(sender, SpellManager.Q.hitchance(Menuini));
+                        SpellManager.Q.Cast(sender);
                     }
                 }
                 else
@@ -108,7 +108,7 @@ namespace NotBrand
                         {
                             if (sender.brandpassive())
                             {
-                                SpellManager.Q.Cast(sender, SpellManager.Q.hitchance(Menuini));
+                                SpellManager.Q.Cast(sender);
                             }
                         }
                     }
