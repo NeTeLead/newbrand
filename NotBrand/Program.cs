@@ -92,7 +92,7 @@ namespace NotBrand
             {
                 return;
             }
-            if (kCore.GapMenu.checkbox(e.SpellName + sender.ID()) && sender.IsKillable(SpellManager.Q.Range))
+            if (sender.IsKillable(SpellManager.Q.Range))
             {
                 if (sender.brandpassive())
                 {
