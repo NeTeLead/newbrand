@@ -10,6 +10,8 @@ namespace NotBrand
         public static Menu LastHitMenu { get; set; }
         public static Menu LaneClearMenu { get; set; }
         public static Menu DrawMenu { get; set; }
+        public static Menu PunishMenu { get; set; }
+        public static Menu PunishSetupMenu { get; set; }
 
         static Config()
         {
@@ -62,6 +64,10 @@ namespace NotBrand
             DrawMenu.Add("drawW", new CheckBox("Draw W"));
             DrawMenu.Add("drawE", new CheckBox("Draw E"));
             DrawMenu.Add("drawR", new CheckBox("Draw R"));
+            
+            PunishMenu = Menu.AddSubMenu("Punish");
+            
+            PunishSetupMenu = Menu.AddSubMenu("Punish Setup");
         }
 
         public static void Initialize()
