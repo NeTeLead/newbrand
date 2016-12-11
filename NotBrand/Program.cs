@@ -94,12 +94,29 @@ namespace NotBrand
             }
             if (!sender.IsInvulnerable && sender.IsValidTarget(900))
             {
-                
-            }
-
-
-
-
+               {
+                if (sender.brandpassive())
+                {
+                    if (SpellManager.Q.IsReady())
+                    {
+                        SpellManager.Q.Cast(sender);
+                    }
+                }
+                else
+                {
+                    if (SpellManager.E.IsReady() && SpellManager.Q.IsReady())
+                    {
+                        if (SpellManager.E.Cast(sender))
+                        {
+                            if (sender.brandpassive())
+                            {
+                                SpellManager.Q.Cast(sender);
+                            }
+                        }
+                    }
+                }
+            } 
+            
         }
         private static void OnDraw(EventArgs args)
         {
