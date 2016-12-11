@@ -86,6 +86,11 @@ namespace NotBrand
         }
         private static void Gapcloser_OnGapcloser(AIHeroClient sender, Gapcloser.GapcloserEventArgs e)
         {
+            if (!sender.IsEnemy || sender == null || e == null || e.End == Vector3.Zero || !e.End.IsInRange(user, SpellManager.Q.Range))
+            {
+                return;
+            }
+
 
         }
         private static void OnDraw(EventArgs args)
