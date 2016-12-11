@@ -28,6 +28,7 @@ namespace NotBrand
 
             Drawing.OnDraw += OnDraw;
             Obj_AI_Base.OnBasicAttack += Obj_AI_Base_OnBasicAttack;
+            Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCast2;
         }
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
@@ -46,11 +47,41 @@ namespace NotBrand
                     SpellManager.W.Cast(sender.ServerPosition);
                     }
                     
-                    
-
-
-            }
+             }
             
+        }
+        private static void Obj_AI_Base_OnProcessSpellCast2(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
+        {
+            //|| (CurrentTarget.Hero == Champion.Yasuo && sender.Mana >= 90)
+            CurrentTarget = TargetSelector.GetTarget(SpellManager.W.Range + 500, DamageType.Magical);
+            if (sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) || (CurrentTarget.Hero == Champion.Yasuo && sender.Mana >= 90))
+            {
+               return;
+            }
+            if (SpellManager.W.IsReady() && !sender.IsInvulnerable && args.Target != CurrentTarget && !sender.IsDashing() && sender == CurrentTarget)
+            {
+
+                
+                if (args.End.Distance(Player.Instance.Position) >= 100 || args.SData.TargettingType == SpellDataTargetType.Unit)
+                {
+                    if (PunishMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
+                    {
+                        if (sender.IsValidTarget(900) && !PunishSetupMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
+                        {
+                            //Chat.Print("Pos Cast:"+args.SData.Name);
+                            SpellManager.W.Cast(sender.ServerPosition);
+                        }
+                        else if (args.End.Distance(Player.Instance.Position) <= 900 && PunishSetupMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
+                        {
+                            //Chat.Print("End Cast:"+args.SData.Name);
+                            SpellManager.W.Cast(args.End);
+                        }  
+                    }
+
+
+                } 
+
+            } 
         }
         private static void OnDraw(EventArgs args)
         {
