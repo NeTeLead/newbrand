@@ -88,7 +88,7 @@ namespace NotBrand
         }
         private static void Gapcloser_OnGapcloser(AIHeroClient sender, Gapcloser.GapcloserEventArgs e)
         {
-            if (!sender.IsEnemy || sender == null || e == null || e.End == Vector3.Zero || !e.End.IsInRange(user, SpellManager.Q.Range))
+            if (!sender.IsEnemy || sender == null || e == null || e.End == Vector3.Zero || !e.End.IsInRange(Player.Instance, SpellManager.Q.Range))
             {
                 return;
             }
