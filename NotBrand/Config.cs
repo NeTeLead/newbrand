@@ -114,6 +114,109 @@ namespace NotBrand
                            }
                             
                         }
+                        else if (spell.Slot == SpellSlot.W)
+                        {
+                            if(enemy.ChampionName == "Leblanc")
+                            {
+                            PunishMenu.Add("leblancslidereturn",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            PunishSetupMenu.Add("leblancslidereturn",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
+                            PunishMenu.Add("leblancslidereturnM",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            PunishSetupMenu.Add("leblancslidereturnM",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
+                            }
+                            else if(enemy.ChampionName == "Zed")
+                            {
+                            PunishMenu.Add("ZedW2",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            PunishSetupMenu.Add("ZedW2",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
+
+                            }
+                            else if(enemy.ChampionName == "Thresh")
+                            {
+                            PunishMenu.Add("LanternWAlly",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            PunishSetupMenu.Add("LanternWAlly",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
+                            }
+                            else if(enemy.ChampionName == "TwistedFate")
+                            {
+                            PunishMenu.Add("BlueCardPreAttack",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            PunishSetupMenu.Add("BlueCardPreAttack",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false)); 
+                            PunishMenu.Add("RedCardPreAttack",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            PunishSetupMenu.Add("RedCardPreAttack",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false)); 
+                            PunishMenu.Add("GoldCardPreAttack",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            PunishSetupMenu.Add("GoldCardPreAttack",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false)); 
+                            }
+                            else if(enemy.ChampionName == "Elise")
+                            {
+                            PunishMenu.Add("EliseHumanW",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            PunishSetupMenu.Add("EliseHumanW",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
+                            }
+                            else
+                            {
+                            PunishMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));
+                            PunishSetupMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));     
+                            }    
+                        }
+                        else if (spell.Slot == SpellSlot.E)
+                        {
+                            if(enemy.ChampionName == "Fizz")
+                            {
+                            PunishMenu.Add("FizzJumpTwo",
+                                new CheckBox(enemy.ChampionName + " - E - " + spell.Name, true));
+                            PunishSetupMenu.Add("FizzJumpTwo",
+                                new CheckBox(enemy.ChampionName + " - E - " + spell.Name, true));
+                            }  
+                            else if(enemy.ChampionName == "Elise")
+                            {
+                            PunishMenu.Add("EliseSpiderEDescent",
+                                new CheckBox(enemy.ChampionName + " - E - " + spell.Name, true));
+                            PunishSetupMenu.Add("EliseSpiderEDescent",
+                                new CheckBox(enemy.ChampionName + " - E - " + spell.Name, true));
+                            PunishMenu.Add("EliseHumanE",
+                                new CheckBox(enemy.ChampionName + " - E - " + spell.Name, true));
+                            PunishSetupMenu.Add("EliseHumanE",
+                                new CheckBox(enemy.ChampionName + " - E - " + spell.Name, true));
+                            }  
+                            else
+                            {
+                            PunishMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - E - " + spell.Name, false));
+                            PunishSetupMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - E - " + spell.Name, false));
+                            }    
+                        }
+                        else if (spell.Slot == SpellSlot.R)
+                        {
+                            if(enemy.ChampionName == "Zed")
+                            {
+                            PunishMenu.Add("ZedR2",
+                                new CheckBox(enemy.ChampionName + " - R - " + spell.Name, true));
+                            PunishSetupMenu.Add("ZedR2",
+                                new CheckBox(enemy.ChampionName + " - R - " + spell.Name, true)); 
+                            }    
+                            else
+                            {
+                            PunishMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - R - " + spell.Name, false));
+                            PunishSetupMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - R - " + spell.Name, false));
+                            }        
+                        }
                  }
                      
             }
