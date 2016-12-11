@@ -77,6 +77,15 @@ namespace NotBrand
             
             foreach (var enemy in EntityManager.Heroes.Enemies.Where(a => a.Team != Player.Instance.Team))
             {
+                 foreach (
+                     var spell in
+                         enemy.Spellbook.Spells.Where(
+                             a =>
+                                 a.Slot == SpellSlot.Q || a.Slot == SpellSlot.W || a.Slot == SpellSlot.E ||
+                                 a.Slot == SpellSlot.R))
+                 {
+                 }
+                     
             }
         }
 
