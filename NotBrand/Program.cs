@@ -92,10 +92,7 @@ namespace NotBrand
             {
                 return;
             }
-            if (sender.IsKillable(SpellManager.Q.Range))
-            {
-  
-            }
+
 
 
         }
