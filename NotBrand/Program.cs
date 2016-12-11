@@ -64,14 +64,14 @@ namespace NotBrand
                 
                 if (args.End.Distance(Player.Instance.Position) >= 100 || args.SData.TargettingType == SpellDataTargetType.Unit)
                 {
-                    if (PunishMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
+                    if (Config.PunishMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
                     {
-                        if (sender.IsValidTarget(900) && !PunishSetupMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
+                        if (sender.IsValidTarget(900) && !Config.PunishSetupMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
                         {
                             //Chat.Print("Pos Cast:"+args.SData.Name);
                             SpellManager.W.Cast(sender.ServerPosition);
                         }
-                        else if (args.End.Distance(Player.Instance.Position) <= 900 && PunishSetupMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
+                        else if (args.End.Distance(Player.Instance.Position) <= 900 && Config.PunishSetupMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
                         {
                             //Chat.Print("End Cast:"+args.SData.Name);
                             SpellManager.W.Cast(args.End);
