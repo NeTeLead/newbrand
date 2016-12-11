@@ -29,7 +29,22 @@ namespace NotBrand
         }
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
-            var CurrentTarget = TargetSelector.GetTarget(SpellManager.W.Range, DamageType.Magical);
+            public static AIHeroClient CurrentTarget;
+            CurrentTarget = TargetSelector.GetTarget(SpellManager.W.Range, DamageType.Magical);
+                        //(CurrentTarget.Hero != Champion.Yasuo && sender.Mana <= 90)//
+            if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) && sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(SpellManager.W.Range) && SpellManager.W.IsReady() && sender.IsEnemy)
+            {
+
+                    if (CurrentTarget.Hero != Champion.Yasuo)
+                    {
+                    SpellManager.W.Cast(sender.ServerPosition);
+                    //Chat.Print("Basic Attack:"+args.SData.Name);
+                    }
+                    else if (sender.Mana <= 90)
+                    {
+                    SpellManager.W.Cast(sender.ServerPosition);
+                    }
+            }
 
         }
         private static void OnDraw(EventArgs args)
