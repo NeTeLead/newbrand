@@ -29,6 +29,7 @@ namespace NotBrand
             Drawing.OnDraw += OnDraw;
             Obj_AI_Base.OnBasicAttack += Obj_AI_Base_OnBasicAttack;
             Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCast2;
+            Gapcloser.OnGapcloser += Gapcloser_OnGapcloser;
         }
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
@@ -82,6 +83,37 @@ namespace NotBrand
                 } 
 
             } 
+        }
+        private static void Gapcloser_OnGapcloser(AIHeroClient sender, Gapcloser.GapcloserEventArgs e)
+        {
+            if (!sender.IsEnemy || sender == null || e == null || e.End == Vector3.Zero || !e.End.IsInRange(user, SpellManager.Q.Range))
+            {
+                return;
+            }
+
+            if (kCore.GapMenu.checkbox(e.SpellName + sender.ID()) && sender.IsKillable(SpellManager.Q.Range))
+            {
+                if (sender.brandpassive())
+                {
+                    if (Q.IsReady())
+                    {
+                        Q.Cast(sender, SpellManager.Q.hitchance(Menuini));
+                    }
+                }
+                else
+                {
+                    if (SpellManager.E.IsReady() && SpellManager.Q.IsReady())
+                    {
+                        if (SpellManager.E.Cast(sender))
+                        {
+                            if (sender.brandpassive())
+                            {
+                                SpellManager.Q.Cast(sender, SpellManager.Q.hitchance(Menuini));
+                            }
+                        }
+                    }
+                }
+            }
         }
         private static void OnDraw(EventArgs args)
         {
