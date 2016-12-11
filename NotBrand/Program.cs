@@ -92,7 +92,7 @@ namespace NotBrand
             {
                 return;
             }
-            if (kCore.GapMenu.checkbox(e.SpellName + sender.ID()) )
+            if (!sender.IsInvulnerable && sender.IsValidTarget(900))
             {
                 
             }
