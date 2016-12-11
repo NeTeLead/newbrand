@@ -95,9 +95,9 @@ namespace NotBrand
             {
                 if (sender.brandpassive())
                 {
-                    if (Q.IsReady())
+                    if (SpellManager.Q.IsReady())
                     {
-                        Q.Cast(sender, SpellManager.Q.hitchance(Menuini));
+                        SpellManager.Q.Cast(sender, SpellManager.Q.hitchance(Menuini));
                     }
                 }
                 else
