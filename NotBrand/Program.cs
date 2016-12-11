@@ -30,7 +30,7 @@ namespace NotBrand
         }
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
-            CurrentTarget = TargetSelector.GetTarget(SpellManager.W.Range, DamageType.Magical);
+            CurrentTarget = TargetSelector.GetTarget(700, DamageType.Magical);
             
         }
         private static void OnDraw(EventArgs args)
