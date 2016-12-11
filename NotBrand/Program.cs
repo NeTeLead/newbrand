@@ -25,8 +25,11 @@ namespace NotBrand
             ModeManager.Initialize();
 
             Drawing.OnDraw += OnDraw;
+            Obj_AI_Base.OnBasicAttack += Obj_AI_Base_OnBasicAttack;
         }
-
+        private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
+        {
+        }
         private static void OnDraw(EventArgs args)
         {
             if (Player.Instance.IsDead)
