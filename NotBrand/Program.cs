@@ -13,6 +13,7 @@ namespace NotBrand
            Loading.OnLoadingComplete += OnLoadingComplete;
         }
 
+        public static AIHeroClient CurrentTarget;
         private static void OnLoadingComplete(EventArgs args)
         {
             if (Player.Instance.Hero != Champion.Brand)
@@ -29,7 +30,7 @@ namespace NotBrand
         }
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
-            public static AIHeroClient CurrentTarget;
+            
             CurrentTarget = TargetSelector.GetTarget(SpellManager.W.Range, DamageType.Magical);
                         //(CurrentTarget.Hero != Champion.Yasuo && sender.Mana <= 90)//
             if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) && sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(SpellManager.W.Range) && SpellManager.W.IsReady() && sender.IsEnemy)
