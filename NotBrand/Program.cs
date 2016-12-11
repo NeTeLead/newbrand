@@ -92,6 +92,11 @@ namespace NotBrand
             {
                 return;
             }
+            if (kCore.GapMenu.checkbox(e.SpellName + sender.ID()) )
+            {
+                
+            }
+
 
 
 
