@@ -94,7 +94,7 @@ namespace NotBrand
             }
             if (!sender.IsInvulnerable && sender.IsValidTarget(900))
             {
-               {
+               
                 if (sender.IsBlazed())
                 {
                     if (SpellManager.Q.IsReady())
