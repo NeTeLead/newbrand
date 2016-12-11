@@ -2,8 +2,8 @@
 using EloBuddy.SDK.Menu.Values;
 using System;
 using System.Linq;
-using EloBuddy;
-using EloBuddy.SDK;
+//using EloBuddy;
+//using EloBuddy.SDK;
 using EloBuddy.SDK.Enumerations;
 using EloBuddy.SDK.Events;
 
