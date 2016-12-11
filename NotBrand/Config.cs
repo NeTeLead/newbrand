@@ -84,6 +84,36 @@ namespace NotBrand
                                  a.Slot == SpellSlot.Q || a.Slot == SpellSlot.W || a.Slot == SpellSlot.E ||
                                  a.Slot == SpellSlot.R))
                  {
+                        if (spell.Slot == SpellSlot.Q)
+                        {
+                            if(enemy.ChampionName == "Thresh")
+                            {
+                            PunishMenu.Add("ThreshQLeap",
+                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
+                            PunishSetupMenu.Add("ThreshQLeap",
+                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true)); 
+                            }
+                            else if(enemy.ChampionName == "Elise")
+                            {
+                            PunishMenu.Add("EliseHumanQ",
+                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
+                            PunishSetupMenu.Add("EliseHumanQ",
+                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
+                            PunishMenu.Add("EliseSpiderQLast",
+                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
+                            PunishSetupMenu.Add("EliseSpiderQLast",
+                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, true));
+                            }
+                            
+                           else
+                           {
+                            PunishMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
+                            PunishSetupMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
+                           }
+                            
+                        }
                  }
                      
             }
