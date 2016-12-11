@@ -102,6 +102,19 @@ namespace NotBrand
                         SpellManager.Q.Cast(sender);
                     }
                 }
+                else
+                {
+                    if (SpellManager.E.IsReady() && SpellManager.Q.IsReady())
+                    {
+                        if (SpellManager.E.Cast(sender))
+                        {
+                            if (sender.IsBlazed())
+                            {
+                                SpellManager.Q.Cast(sender);
+                            }
+                        }
+                    }
+                 }
 
             } 
             
