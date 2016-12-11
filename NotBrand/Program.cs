@@ -86,34 +86,7 @@ namespace NotBrand
         }
         private static void Gapcloser_OnGapcloser(AIHeroClient sender, Gapcloser.GapcloserEventArgs e)
         {
-            if (!sender.IsEnemy || sender == null || e == null || e.End == Vector3.Zero || !e.End.IsInRange(user, SpellManager.Q.Range))
-            {
-                return;
-            }
 
-            if (kCore.GapMenu.checkbox(e.SpellName + sender.ID()) && sender.IsKillable(SpellManager.Q.Range))
-            {
-                if (sender.brandpassive())
-                {
-                    if (SpellManager.Q.IsReady())
-                    {
-                        SpellManager.Q.Cast(sender);
-                    }
-                }
-                else
-                {
-                    if (SpellManager.E.IsReady() && SpellManager.Q.IsReady())
-                    {
-                        if (SpellManager.E.Cast(sender))
-                        {
-                            if (sender.brandpassive())
-                            {
-                                SpellManager.Q.Cast(sender);
-                            }
-                        }
-                    }
-                }
-            }
         }
         private static void OnDraw(EventArgs args)
         {
